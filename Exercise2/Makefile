@@ -11,7 +11,7 @@ MKL_LIBS := -L$(MKLROOT)/lib/intel64 -lmkl_intel_lp64 -lmkl_gnu_thread -lmkl_cor
 OPENBLAS_LIBS := -L$(OPENBLASROOT)/lib -lopenblas -lpthread
 BLIS_LIBS := -L$(BLISROOT)/lib -lblis -lpthread
 
-# Executables that will be generated.
+# Executables that will be generated
 EXECS := mkl_double.x mkl_float.x openblas_double.x openblas_float.x blis_double.x blis_float.x
 
 # Declare the targets `all` and `clean` as "phony" targets: tasks that don't produce files with the corresponding names
