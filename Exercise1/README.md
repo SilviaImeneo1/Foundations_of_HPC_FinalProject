@@ -22,9 +22,9 @@ In the root directory, you can find the files:
 * `THIN/`: it contains the data for the scalability studies on Thin nodes.
 
 Both the `EPYC/` and the `THIN` directories are structured as follow:
-* OpenMP_scalability
-* Strong_MPI_scalability
-* Weak_MPI_scalability
+* `OpenMP_scalability`
+* `Strong_MPI_scalability`
+* `Weak_MPI_scalability`
 
 For the directories belonging to `EPYC/`, we have an extra division in `ordered/` and `static/`.
 
