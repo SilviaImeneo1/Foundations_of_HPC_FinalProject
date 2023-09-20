@@ -26,9 +26,7 @@ Both the `EPYC/` and the `THIN` directories are structured as follow:
 * `Strong_MPI_scalability`
 * `Weak_MPI_scalability`
 
-For the directories belonging to `EPYC/`, we have an extra division in `ordered/` and `static/`.
-
-For both `EPYC/` and `THIN/`, each of the final directories includes:
+Each of these three final directories includes:
 * one `job.sh` file: it is the bash shell script to give specific command-line arguments. It can be edited by the user based on which results they want to analyze. For example, they can edit the size of the playground (`k`), or the number of iterations (`n`) to perform.
 * several `.csv` files with the results that we obtained when performing the scalability studies.
 
