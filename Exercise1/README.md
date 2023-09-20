@@ -44,6 +44,7 @@ To replicate our results, we invite you to:
 For example, if you want to analyze the change in run-time for the ordered evolution in the Strong MPI scalability case on Epyc nodes, you should:
 * Navigate to `EPYC/Srong_MPI_scalability/ordered/`
 * Call `sbatch job.sh`
+
 You will have as results:
 * a `.csv` file with the time measurements,
 * a `.pgm` file with the written final playground,
