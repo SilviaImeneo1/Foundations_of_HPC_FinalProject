@@ -1,0 +1,51 @@
+#!/bin/bash
+#SBATCH --no-requeue
+#SBATCH --job-name="stat+ord_strong_MPI"
+#SBATCH --partition=THIN
+#SBATCH -N 2
+#SBATCH -n 48
+#SBATCH --exclusive
+#SBATCH --time=02:00:00
+
+module load openMPI/4.1.5/gnu/12.2.1
+policy=close
+export OMP_PLACES=cores
+export OMP_PROC_BIND=$policy
+
+loc=$(pwd)
+cd ../..
+make par location=$loc
+cd $loc
+
+threads=1
+
+
+
+datafile=$loc/timing.csv
+echo "size, procs, ordered_mean, static_mean" > $datafile
+  
+
+
+## initialize a playground
+export OMP_NUM_THREADS=$threads
+size=20000
+#for size in 10000 40000
+#do
+mpirun -np 4 -N 2 --map-by socket main.x -i -f "playground_${size}.pgm" -k $size
+for procs in $(seq 2 2 48)
+do
+      echo -n "${size}," >> $datafile
+      echo -n "${procs},">> $datafile
+      mpirun -np $procs -N 2 --map-by core main.x -r -f "playground_${size}.pgm" -e 0 -n 50 -s 0 -k $size
+      mpirun -np $procs -N 2 --map-by core main.x -r -f "playground_${size}.pgm" -e 1 -n 100 -s 50 -k $size
+
+done
+#done
+
+
+
+cd ../..
+make clean
+module purge
+cd $loc
+
