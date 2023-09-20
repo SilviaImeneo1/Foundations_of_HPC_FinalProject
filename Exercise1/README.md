@@ -49,4 +49,4 @@ You will have as results:
 * a `.csv` file with the time measurements,
 * a `.pgm` file with the written final playground,
 * one or more other `.pgm` file, based on the argument that you gave to the `-s` command for the number of snapshots that you want to obtain,
-* a `slurm-xxxxx.out` file with a step-by-step output of the job that you run.
+* a `slurm-xxxxx.out` file (where 'xxxxx' is the id number of the job that you run) with a step-by-step output of the job.
